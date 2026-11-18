@@ -21,6 +21,11 @@ jobs:
       uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
       with:
         go-version-file: go.mod
+    - name: Cache Go modules
+      uses: actions/cache@v4
+      with:
+        path: ~/go/pkg/mod
+        key: ${{ runner.os }}-go-${{ hashFiles('go.mod', 'go.sum') }}
     - name: Execute Tests
       run: make build tests-base
     - name: Upload coverage to Codecov
@@ -39,6 +44,11 @@ jobs:
       uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
       with:
         go-version-file: go.mod
+    - name: Cache Go modules
+      uses: actions/cache@v4
+      with:
+        path: ~/go/pkg/mod
+        key: ${{ runner.os }}-go-${{ hashFiles('go.mod', 'go.sum') }}
     - name: Execute Tests
       run: make build tests-redis
     - name: Upload coverage to Codecov
@@ -57,6 +67,11 @@ jobs:
       uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
       with:
         go-version-file: go.mod
+    - name: Cache Go modules
+      uses: actions/cache@v4
+      with:
+        path: ~/go/pkg/mod
+        key: ${{ runner.os }}-go-${{ hashFiles('go.mod', 'go.sum') }}
     - name: Execute Tests
       run: make build tests-nats
     - name: Upload coverage to Codecov
@@ -75,6 +90,11 @@ jobs:
       uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
       with:
         go-version-file: go.mod
+    - name: Cache Go modules
+      uses: actions/cache@v4
+      with:
+        path: ~/go/pkg/mod
+        key: ${{ runner.os }}-go-${{ hashFiles('go.mod', 'go.sum') }}
     - name: Execute Tests
       run: make build tests-cassandra
     - name: Upload coverage to Codecov
@@ -94,6 +114,11 @@ jobs:
       uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
       with:
         go-version-file: go.mod
+    - name: Cache Go modules
+      uses: actions/cache@v4
+      with:
+        path: ~/go/pkg/mod
+        key: ${{ runner.os }}-go-${{ hashFiles('go.mod', 'go.sum') }}
     - name: Build Test WASM Modules
       run: make build
     - name: Execute Tests
@@ -115,6 +140,11 @@ jobs:
       uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
       with:
         go-version-file: go.mod
+    - name: Cache Go modules
+      uses: actions/cache@v4
+      with:
+        path: ~/go/pkg/mod
+        key: ${{ runner.os }}-go-${{ hashFiles('go.mod', 'go.sum') }}
     - name: Execute Tests
       run: make build tests-inmemory
     - name: Upload coverage to Codecov
@@ -134,6 +164,11 @@ jobs:
       uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
       with:
         go-version-file: go.mod
+    - name: Cache Go modules
+      uses: actions/cache@v4
+      with:
+        path: ~/go/pkg/mod
+        key: ${{ runner.os }}-go-${{ hashFiles('go.mod', 'go.sum') }}
     - name: Execute Tests
       run: make build tests-mysql
     - name: Upload coverage to Codecov
@@ -152,6 +187,11 @@ jobs:
       uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
       with:
         go-version-file: go.mod
+    - name: Cache Go modules
+      uses: actions/cache@v4
+      with:
+        path: ~/go/pkg/mod
+        key: ${{ runner.os }}-go-${{ hashFiles('go.mod', 'go.sum') }}
     - name: Execute Tests
       run: make build tests-postgres
     - name: Upload coverage to Codecov
