@@ -1,3 +1,8 @@
+# Optimized by ci-cost (https://github.com/mariotavarez/ci-cost)
+# Applied 1 optimization:
+# - [MEDIUM] Add concurrency group to "build.yml"
+# Estimated savings: ~2 min/run
+#
 name: build
 permissions:
   contents: read
@@ -12,6 +17,10 @@ on:
       - main
   pull_request:
   merge_group:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   tests:
     runs-on: ubuntu-latest
